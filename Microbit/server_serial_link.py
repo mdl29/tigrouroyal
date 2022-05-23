@@ -1,4 +1,9 @@
 # coding: utf-8
+
+# need python3-serial:
+# sudo apt install python3-serial
+# need guizero:
+# pip3 install guizero
 import serial, time
 from guizero import App, PushButton, Text
 

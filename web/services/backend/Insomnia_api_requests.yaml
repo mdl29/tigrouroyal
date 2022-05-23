@@ -1,0 +1,187 @@
+_type: export
+__export_format: 4
+__export_date: 2022-05-23T14:51:37.533Z
+__export_source: insomnia.desktop.app:v2022.3.0
+resources:
+  - _id: req_d90f2117181441fca7294bfa4acd5720
+    parentId: fld_17c49ef999584a96813fc727e30b8ed4
+    modified: 1653311703736
+    created: 1653311460485
+    url: http://localhost:5000/api/buzzer/activate/0xbd0fa2a8
+    name: Activate a buzzer
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1653311460485
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_17c49ef999584a96813fc727e30b8ed4
+    parentId: fld_d2a06d19b7f94152b8a8258ff3428fe0
+    modified: 1653309383438
+    created: 1653309383438
+    name: API
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1653309383438
+    _type: request_group
+  - _id: fld_d2a06d19b7f94152b8a8258ff3428fe0
+    parentId: wrk_2bdc318bb84d4a70b19bb08d8c729e5f
+    modified: 1653309356786
+    created: 1653309356786
+    name: Tigrouroyal
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1653309356786
+    _type: request_group
+  - _id: wrk_2bdc318bb84d4a70b19bb08d8c729e5f
+    parentId: null
+    modified: 1615039574747
+    created: 1615039574747
+    name: Scratchy
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_b606f67c9f3a40649398b033af2fbbfc
+    parentId: fld_17c49ef999584a96813fc727e30b8ed4
+    modified: 1653311326991
+    created: 1653310701700
+    url: http://localhost:5000/api/buzzer/0x12345677
+    name: Get a buzzer
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1653310701700
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_243bb2c822274db8bdf21dd73adbaf57
+    parentId: fld_17c49ef999584a96813fc727e30b8ed4
+    modified: 1653311108055
+    created: 1653310424763
+    url: http://localhost:5000/api/buzzer/0x12345679
+    name: Delete a buzzer
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1653310424763
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8276a96115214bc8b60c52b6cf93e75c
+    parentId: fld_17c49ef999584a96813fc727e30b8ed4
+    modified: 1653317390531
+    created: 1653310173507
+    url: http://localhost:5000/api/buzzer
+    name: Add a buzzer
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+        	"id" : "0x87654321",
+        	"nom" : "unknown-1"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_57a0efc476534a5cbd7eb784d8eba475
+    authentication: {}
+    metaSortKey: -1653310173507
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_357ff7f52a2043aaab8c8557c78a3825
+    parentId: fld_17c49ef999584a96813fc727e30b8ed4
+    modified: 1653310463285
+    created: 1653309391802
+    url: http://localhost:5000/api/buzzer
+    name: Get Buzzer List
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1653309391802
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_99706107fcda96d86ca52d4e77623ae9835a8287
+    parentId: wrk_2bdc318bb84d4a70b19bb08d8c729e5f
+    modified: 1615039574824
+    created: 1615039574824
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1615039574824
+    _type: environment
+  - _id: jar_99706107fcda96d86ca52d4e77623ae9835a8287
+    parentId: wrk_2bdc318bb84d4a70b19bb08d8c729e5f
+    modified: 1615039574826
+    created: 1615039574826
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_7e854c1cd6da42599f78799810568e87
+    parentId: wrk_2bdc318bb84d4a70b19bb08d8c729e5f
+    modified: 1615039574752
+    created: 1615039574752
+    fileName: Scratchy
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: env_7f0a6af083534141880c0af9c5a79c35
+    parentId: env_99706107fcda96d86ca52d4e77623ae9835a8287
+    modified: 1653317390054
+    created: 1615039708680
+    name: DEV
+    data:
+      base_url: http://localhost:5000
+    dataPropertyOrder:
+      "&":
+        - base_url
+    color: null
+    isPrivate: false
+    metaSortKey: 1615039708680
+    _type: environment

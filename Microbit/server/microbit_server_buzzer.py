@@ -19,7 +19,7 @@ import radio
 radio.on()
 
 buzzer_numero_serie = '0xbd0fa2a8'
-buzzer_numero_serie_bidon = '0xbd0fa2a9'
+# buzzer_numero_serie_bidon = '0xbd0fa2a9'
 
 # nettoyage au démarrage
 display.clear()
@@ -27,7 +27,7 @@ display.clear()
 # méthode pour envoyer un message pour un buzzer particulier
 # grâce à son numéro de série
 def envoi(buzzer_parametre):
-#    display.clear()
+    #    display.clear()
     display.show(Image.BUTTERFLY)
     message = buzzer_parametre
     radio.send(message)
@@ -36,17 +36,18 @@ def envoi(buzzer_parametre):
 while True:
     if uart.any():
         msg_bytes = uart.read()
-        if msg_bytes == b'envoi':
+        msg_str = str(msg_bytes, 'UTF-8')
+        messages = msg_str.split(',')
+        if messages[0] == 'envoi':
+            if len(messages) > 1:
+                buzzer_numero_serie = messages[1]
             envoi(buzzer_numero_serie)
-            # temp = temperature()
-            # display.scroll(temp)
             sleep(2000)
             display.clear()
-        if msg_bytes == b'bidon':
-            envoi(buzzer_numero_serie_bidon)
-            # temp = temperature()
-            # display.scroll(temp)
-            sleep(2000)
+        else:
+            display.show(Image.DIAMOND)
+            sleep(1000)
             display.clear()
     sleep(1000)
 # fin boucle
+

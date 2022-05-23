@@ -43,12 +43,12 @@ while True:
         if paquetentrant == numero_serie:
             # faire afficher, vibrer, sonner pendant 5 secondes
             stop = time.ticks_add(time.ticks_ms(), 5000)
+            # alors afficher message, faire sonner et vibrer le buzzer
+            display.show(Image.HAPPY)
             while time.ticks_diff(stop, time.ticks_ms()) > 0:
-                # alors afficher message, faire sonner et vibrer le buzzer
-                display.show(Image.HAPPY)
-                # attendre un peu: 2 secondes
-                sleep(2000)
-                # effacer l'écran
-                display.clear();
+                # attendre un peu: 1/2 secondes
+                sleep(500)
             # fin boucle
+            # effacer l'écran
+            display.clear()
 # fin de la boucle infinie

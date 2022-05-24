@@ -7,7 +7,7 @@ boitier_pile_emplacement_epaisseur = 2;
 
 connecteur_edge_hauteur = 11.8;
 connecteur_edge_longueur = 40;
-connecteur_edge_largeur = 60;
+connecteur_edge_largeur = 60 + 1; // was too small
 connecteur_percage_bord_bas = 6;
 connecteur_percage_bord_lat = 3;
 connecteur_percage_diametre = 2;
@@ -50,9 +50,10 @@ module fond() {
                         0])
                     cylinder($fn=50, h=4, r=1);
         }
-        // trou USB
-        translate([boitier_complet_largeur / 2 - 7.5, boitier_complet_longueur - 3 , boitier_complet_hauteur - 6])
-            cube([15, 4, 7]);
+        // trou USB + alimentation
+        translate([boitier_complet_largeur / 2 - 25, boitier_complet_longueur - 3 , boitier_complet_hauteur - 6])
+            // cube([15, 4, 7]);
+            cube([32, 4, 7]);
     }
     // cube([boitier_complet_largeur, boitier_complet_longueur,boitier_epaisseur]);
 }
@@ -84,18 +85,19 @@ module support_vibreur() {
 module support_boitier_pile() {
     difference() {
         translate([boitier_complet_largeur / 2 - (boitier_pile_longueur / 2) + boitier_epaisseur,
-                    30 + boitier_epaisseur + boitier_pile_emplacement_epaisseur,
+                    30 + boitier_epaisseur, // + boitier_pile_emplacement_epaisseur,
                     boitier_epaisseur])
             color("green")
-                cube([boitier_pile_longueur,
-                    boitier_pile_largeur,
+                cube([boitier_pile_longueur + boitier_pile_emplacement_epaisseur,
+                    boitier_pile_largeur + boitier_pile_emplacement_epaisseur,
                     boitier_pile_emplacement_epaisseur]);
         
         translate([boitier_complet_largeur / 2 - (boitier_pile_longueur / 2) + boitier_epaisseur +boitier_pile_emplacement_epaisseur / 2,
-            30 + boitier_epaisseur + boitier_pile_emplacement_epaisseur + boitier_pile_emplacement_epaisseur / 2,
+            30 + boitier_epaisseur + // boitier_pile_emplacement_epaisseur
+                boitier_pile_emplacement_epaisseur / 2,
             boitier_epaisseur])
-                cube([boitier_pile_longueur - boitier_pile_emplacement_epaisseur,
-                    boitier_pile_largeur - boitier_pile_emplacement_epaisseur,
+                cube([boitier_pile_longueur, // + boitier_pile_emplacement_epaisseur,
+                    boitier_pile_largeur, // + boitier_pile_emplacement_epaisseur,
                     boitier_pile_emplacement_epaisseur + 1]);
     }
 }
@@ -115,7 +117,7 @@ module couvercle() {
             color("orange")
                 cube([boitier_complet_largeur, boitier_complet_longueur, boitier_epaisseur]);
         translate([boitier_complet_largeur / 2 - 25 / 2,
-                    connecteur_edge_longueur + 2 + + 2 - 22 / 2,
+                    connecteur_edge_longueur + 2,
                     boitier_complet_hauteur - 1])
             cube([25,  // largeur zone LED
                   22, // longueur zone LE,

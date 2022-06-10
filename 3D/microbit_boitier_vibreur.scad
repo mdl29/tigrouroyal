@@ -22,6 +22,7 @@ vibreur_boite_epaisseur = 2;
 vibreur_largeur = 20;
 vibreur_longueur = 20;
 vibreur_hauteur = 13;
+vibreur_oeil = 4;
 
 boitier_epaisseur = 2; 
 boitier_complet_largeur = connecteur_edge_largeur + (boitier_epaisseur * 2);
@@ -73,6 +74,13 @@ module support_vibreur() {
                         cube([vibreur_largeur,
                             vibreur_longueur,
                             vibreur_hauteur + 2]);
+        // create vibreur oeils
+        translate([boitier_complet_largeur / 2 - (vibreur_largeur / 2) + vibreur_boite_epaisseur / 2 - 2, 
+                boitier_epaisseur - 1 + (vibreur_longueur / 2),
+                vibreur_boite_epaisseur])
+                        cube([vibreur_largeur + 4,
+                            vibreur_oeil,
+                            (vibreur_hauteur / 3) + 2]);
         
     }
     
@@ -130,6 +138,6 @@ union() {
     support_vibreur();
     support_boitier_pile();
     support_connector_edge();
-    couvercle();
+    //couvercle();
     //!couvercle();  // pour imprimer le couvercle
 }

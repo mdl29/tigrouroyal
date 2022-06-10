@@ -111,25 +111,39 @@ module support_boitier_pile() {
 }
 
 module support_connector_edge() {
-    translate([connecteur_percage_bord_lat + boitier_epaisseur, connecteur_percage_bord_bas + boitier_epaisseur, boitier_epaisseur])
+    translate([connecteur_percage_bord_lat + boitier_epaisseur + 1, connecteur_percage_bord_bas + boitier_epaisseur, boitier_epaisseur])
         color("blue")
         cylinder(h=13, r=connecteur_percage_diametre + 2);
-    translate([connecteur_percage_bord_lat + boitier_epaisseur + 53, connecteur_percage_bord_bas + boitier_epaisseur, boitier_epaisseur])
+    translate([connecteur_percage_bord_lat + boitier_epaisseur + 54, connecteur_percage_bord_bas + boitier_epaisseur, boitier_epaisseur])
         color("blue")
         cylinder(h=13, r=connecteur_percage_diametre + 2);
 }
 
 module couvercle() {
     difference() {
-        translate([0, 0, boitier_complet_hauteur])
-            color("orange")
-                cube([boitier_complet_largeur, boitier_complet_longueur, boitier_epaisseur]);
+        union() {
+            translate([0, 0, boitier_complet_hauteur])
+                color("orange")
+                    cube([boitier_complet_largeur, boitier_complet_longueur, boitier_epaisseur]);
+            difference() {
+                translate([2, 2, boitier_complet_hauteur - 2])
+                    color("yellow")
+                        cube([boitier_complet_largeur - 4, boitier_complet_longueur - 4, boitier_epaisseur]);
+                translate([1, 6, boitier_complet_hauteur - 2])
+                    color("DarkCyan")
+                        cube([boitier_complet_largeur , boitier_complet_longueur - 12, boitier_epaisseur]);
+                translate([6, 1, boitier_complet_hauteur - 2])
+                    color("DarkCyan")
+                        cube([boitier_complet_largeur -12, boitier_complet_longueur, boitier_epaisseur]);
+
+            }
+        }
         translate([boitier_complet_largeur / 2 - 25 / 2,
                     connecteur_edge_longueur + 2,
-                    boitier_complet_hauteur - 1])
+                    boitier_complet_hauteur - 3])
             cube([25,  // largeur zone LED
                   22, // longueur zone LE,
-                  boitier_epaisseur +  2]);
+                  boitier_epaisseur +  4]);
     }
 }
 

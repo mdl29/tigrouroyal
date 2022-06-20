@@ -19,7 +19,7 @@ microbit_hauteur = 9;
 microbit_enfiche_connector = 7;
 
 vibreur_boite_epaisseur = 2;
-vibreur_largeur = 20;
+vibreur_largeur = 21; // + 1 à cause des oeils
 vibreur_longueur = 20;
 vibreur_hauteur = 13;
 vibreur_oeil = 4;
@@ -144,6 +144,10 @@ module couvercle() {
             cube([25,  // largeur zone LED
                   22, // longueur zone LE,
                   boitier_epaisseur +  4]);
+        // ajouter nom sur la boîte
+        translate([20, 20, boitier_complet_hauteur + 2 ])
+            color("Purple")
+                text("LPH", size=8);
     }
 }
 
